@@ -61,12 +61,12 @@ function Pessoa(nome, idade) {
   function Dom(seletor){
     const elementList = document.querySelectorAll(seletor)
     this.elements = elementList
-    this.addClass = (classe) => {
+    this.addClass = function(classe) {
         elementList.forEach((element) => {
             element.classList.add(classe)
         })
     }
-    this.removeClass = (classe) => {
+    this.removeClass = function(classe) {
         elementList.forEach((element) => {
             element.classList.remove(classe)
         })
