@@ -132,15 +132,16 @@ const transacoes = [
   let totalTaxa = 0
   let totalRecebimento = 0
   transacoes.forEach((item) => {
-    if (item.descricao.startsWith('Taxa')){
+    itemFormatado = item.descricao.toLowerCase().trim()
+
+    if (itemFormatado.startsWith('taxa')){
         totalTaxa += parseFloat(item.valor.slice(2))
-    } else if (item.descricao.startsWith('Recebimento')) {
+    } else if (itemFormatado.startsWith('recebimento')) {
         totalRecebimento += parseFloat(item.valor.slice(2))
     }
 })
 console.log(`Taxa total: R$ ${totalTaxa}`)
 console.log(`Recebimento total: R$ ${totalRecebimento}`)
-
   
 // Retorne uma array com a lista abaixo
 const transportes = 'Carro;Avião;Trem;Ônibus;Bicicleta';
@@ -155,26 +156,25 @@ const htmlText =
     <li><span>Contato</span></li>
 </ul>`;
 
-const htmlArray = htmlText.split('span')
-const newHtmlText = htmlArray.join('a')
+const newHtmlText = htmlText.split('span').join('a')
 console.log(newHtmlText)
   
 // Retorne o último caracter da frase
 const frase = 'Melhor do ano!';
 
 console.log(frase[frase.length -1])
-// ou 
 console.log(frase.charAt(frase.length -1))
+// ou 
+console.log(frase.slice(-1))
 
 // Retorne o total de taxas
 const transacoesArray = ['Taxa do Banco', '   TAXA DO PÃO', '  taxa do mercado', 'depósito Bancário', 'TARIFA especial'];
 
 let taxas = 0
 transacoesArray.forEach((item) => {
-    const itemFormatado = item.toLowerCase().trim()
-    if (itemFormatado.includes('taxa') === true){
+    item = item.toLowerCase().trim()
+    if (item.includes('taxa') === true){
       taxas += 1
     }
   })
 console.log(`Existem ${taxas} taxas neste Array`)
-  
