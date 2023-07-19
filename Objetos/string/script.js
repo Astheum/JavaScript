@@ -171,7 +171,7 @@ const transacoesArray = ['Taxa do Banco', '   TAXA DO PÃO', '  taxa do mercado'
 
 let taxas = 0
 transacoesArray.forEach((item) => {
-    const itemFormatado = item.toLowerCase().trimStart()
+    const itemFormatado = item.toLowerCase().trim()
     if (itemFormatado.includes('taxa') === true){
       taxas += 1
     }
